@@ -1,0 +1,166 @@
+<!-- ============================================================
+     TradeWorks AI — Site Footer (DevGuide v1.2)
+     One consolidated navy section: brand/NAP/social + 4 nav columns
+     + legal line (hairline divider). Self-contained styles so every
+     page (incl. standalone trade pages) renders it identically.
+     Links use canonical trailing-slash, root-absolute paths.
+     ============================================================ -->
+<style id="tw-footer-style">
+  footer.site-footer { background:#1B3C6E; color:#cdd9e8; padding:56px 0 24px; }
+  footer.site-footer * { box-sizing:border-box; }
+  footer.site-footer .footer-inner { max-width:1180px; margin:0 auto; padding:0 22px; }
+  footer.site-footer .footer-top {
+    display:grid; grid-template-columns:1.6fr 1fr 1fr 1.1fr 1fr; gap:30px;
+  }
+  footer.site-footer .footer-col h4 { color:#fff; font-weight:700; font-size:.92rem; margin:0 0 12px; letter-spacing:.02em; }
+  footer.site-footer .footer-col a { display:block; color:#BCCBE0; font-size:.88rem; line-height:1.55; margin-bottom:8px; text-decoration:none; }
+  footer.site-footer .footer-col a:hover, footer.site-footer .footer-col a:focus { color:#fff; }
+  footer.site-footer .footer-col a.accent { color:#E8751A; font-weight:700; }
+  footer.site-footer .footer-brand .wordmark { color:#fff; font-weight:800; font-size:1.2rem; text-decoration:none; display:inline-block; }
+  footer.site-footer .footer-brand .wordmark span { color:#E8751A; }
+  footer.site-footer .footer-positioning { font-size:.9rem; color:#cdd9e8; margin-top:10px; line-height:1.6; max-width:300px; }
+  footer.site-footer .footer-nap { font-size:.86rem; color:#9fb2cc; margin-top:12px; line-height:1.8; }
+  footer.site-footer .footer-nap a { color:#cdd9e8; text-decoration:none; }
+  footer.site-footer .footer-nap a:hover { color:#fff; }
+  footer.site-footer .footer-social { display:flex; gap:12px; margin-top:14px; flex-wrap:wrap; }
+  footer.site-footer .footer-social a { width:36px; height:36px; display:grid; place-items:center; border-radius:8px; background:rgba(255,255,255,.08); color:#cdd9e8; }
+  footer.site-footer .footer-social a:hover, footer.site-footer .footer-social a:focus { background:#2E86AB; color:#fff; }
+  footer.site-footer .footer-social svg { width:18px; height:18px; }
+  /* Legal line — same navy section, divided by a hairline (not a separate band) */
+  footer.site-footer .footer-legal { border-top:1px solid rgba(255,255,255,.14); margin-top:40px; display:flex; flex-wrap:wrap; gap:8px 20px; align-items:center; padding-top:18px; font-size:.8rem; color:#9fb2cc; }
+  footer.site-footer .footer-legal a { color:#cdd9e8; text-decoration:none; }
+  footer.site-footer .footer-legal a:hover, footer.site-footer .footer-legal a:focus { color:#fff; }
+  footer.site-footer .footer-legal .copy { margin-left:auto; }
+  footer.site-footer .footer-legal .disclaimer { flex:1 1 100%; color:#8aa0bd; margin-top:6px; line-height:1.55; }
+  footer.site-footer a:focus-visible { outline:2px solid #2E86AB; outline-offset:2px; border-radius:4px; }
+  @media (max-width:1023px){
+    footer.site-footer .footer-top{ grid-template-columns:1fr 1fr; }
+    footer.site-footer .footer-brand{ grid-column:1 / -1; }
+  }
+  @media (max-width:767px){
+    footer.site-footer .footer-top{ grid-template-columns:1fr; }
+    footer.site-footer .footer-legal .copy{ margin-left:0; }
+  }
+</style>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-top">
+
+      <!-- Brand / identity block -->
+      <div class="footer-brand">
+        <a href="/" class="wordmark" aria-label="TradeWorks AI home">TradeWorks <span>AI</span></a>
+        <p class="footer-positioning">One network for every home service &mdash; plus AI-enhanced marketing for contractors.</p>
+        <address class="footer-nap" style="font-style:normal;">
+          <strong style="color:#cdd9e8;">TradeWorks AI</strong><br>
+          Riverview, FL 33578<br>
+          <a href="tel:+18134777350">(813) 477-7350</a><br>
+          <a href="mailto:trevor&#64;tradeworksai&#46;com">trevor<span aria-hidden="true">&#64;</span>tradeworksai<span aria-hidden="true">&#46;</span>com</a><br>
+          Mon&ndash;Fri 8:00 AM &ndash; 6:00 PM ET
+        </address>
+        <nav class="footer-social" aria-label="TradeWorks AI on social media">
+          <!-- Social URLs are placeholders where unknown — replace with real profiles and keep identical in the JSON-LD sameAs below. -->
+          <a href="https://www.facebook.com/profile.php?id=61576094093336" target="_blank" rel="noopener" aria-label="TradeWorks AI on Facebook">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/tradeworksai" target="_blank" rel="noopener" aria-label="TradeWorks AI on Instagram">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://linkedin.com/company/tradeworks-ai" target="_blank" rel="noopener" aria-label="TradeWorks AI on LinkedIn">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@tradeworksai" target="_blank" rel="noopener" aria-label="TradeWorks AI on YouTube">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+          </a>
+          <a href="https://www.pinterest.com/tradeworksai" target="_blank" rel="noopener" aria-label="TradeWorks AI on Pinterest">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.6 19.3c-.1-.8-.2-2 0-2.9l1.2-5s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.9 0 1.3.6 1.3 1.4 0 .9-.5 2.1-.8 3.3-.2.9.5 1.7 1.4 1.7 1.7 0 2.9-2.2 2.9-4.8 0-2-1.3-3.5-3.8-3.5-2.7 0-4.4 2-4.4 4.3 0 .8.2 1.4.6 1.8.2.2.2.3.1.5l-.2.8c-.1.3-.3.4-.5.2-1-.5-1.6-2-1.6-3.3 0-2.7 2-5.2 5.7-5.2 3 0 5.3 2.1 5.3 5 0 3-1.8 5.3-4.4 5.3-.9 0-1.7-.5-2-1l-.5 2c-.2.8-.7 1.7-1 2.3A10 10 0 1 0 12 2z"/></svg>
+          </a>
+          <a href="https://nextdoor.com/pages/tradeworksai" target="_blank" rel="noopener" aria-label="TradeWorks AI on Nextdoor">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-5a2 2 0 0 1 4 0v5"/></svg>
+          </a>
+          <a href="https://g.page/r/tradeworksai" target="_blank" rel="noopener" aria-label="TradeWorks AI on Google">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </a>
+        </nav>
+      </div>
+
+      <!-- TradeWorks One (marketplace — demand) -->
+      <nav class="footer-col" aria-label="TradeWorks One">
+        <h4>TradeWorks One</h4>
+        <a href="https://www.tradeworksai.com/services/tradeworks-one/homeowners/">For Homeowners</a>
+        <a href="https://www.tradeworksai.com/services/tradeworks-one/property-managers/">For Property Managers</a>
+        <a href="https://www.tradeworksai.com/services/tradeworks-one/">The Network</a>
+        <a href="https://www.tradeworksai.com/services/">Browse All Services</a>
+      </nav>
+
+      <!-- TradeWorks Select (marketplace — supply) -->
+      <nav class="footer-col" aria-label="TradeWorks Select">
+        <h4>TradeWorks Select</h4>
+        <a href="https://www.tradeworksai.com/services/tradeworks-select/">Join the Network</a>
+        <a href="https://www.tradeworksai.com/services/tradeworks-select/#how-it-works">How Work Orders Work</a>
+        <a href="https://www.tradeworksai.com/pricing/">Membership &amp; Pricing</a>
+      </nav>
+
+      <!-- Marketing & Growth (the marketing arm) -->
+      <nav class="footer-col" aria-label="Marketing and Growth">
+        <h4>Marketing &amp; Growth</h4>
+        <a href="https://www.tradeworksai.com/services/digital-marketing/">Digital Marketing</a>
+        <a href="https://www.tradeworksai.com/services/ai-agents/">AI Agents</a>
+        <a href="https://www.tradeworksai.com/services/consulting/">Consulting</a>
+        <a href="https://www.tradeworksai.com/integrations/">Integrations</a>
+        <a href="https://www.tradeworksai.com/audit/">Free Marketing Audit</a>
+        <a href="/industries/">Industries We Serve</a>
+        <a href="https://www.tradeworksai.com/pricing/">Pricing</a>
+      </nav>
+
+      <!-- Company -->
+      <nav class="footer-col" aria-label="Company">
+        <h4>Company</h4>
+        <a href="https://www.tradeworksai.com/about/">About</a>
+        <a href="https://www.tradeworksai.com/blog/">Blog</a>
+        <a href="https://www.tradeworksai.com/contact/">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Legal line (same section, hairline divider) -->
+    <div class="footer-legal">
+      <a href="https://www.tradeworksai.com/privacy-policy/">Privacy Policy</a>
+      <a href="https://www.tradeworksai.com/delete-account/">Delete My Account</a>
+      <a href="https://www.tradeworksai.com/terms/">Terms of Service</a>
+      <a href="https://www.tradeworksai.com/accessibility/">Accessibility</a>
+      <span class="copy">&copy; 2026 TradeWorks AI</span>
+      <p class="disclaimer">TradeWorks One is a booking platform, not the service provider; pricing varies by provider and location and is confirmed at booking. The marketplace is live in the Tampa Bay area and expanding; marketing services are available across the U.S. and Canada.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Site-wide Organization entity. NAP byte-matches the footer + GBP.
+     Replace sameAs placeholders with the real profile URLs (keep 1:1 with the social row). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TradeWorks AI",
+  "url": "https://www.tradeworksai.com/",
+  "logo": "https://www.tradeworksai.com/images/logo-primary.svg",
+  "email": "trevor@tradeworksai.com",
+  "telephone": "+1-813-477-7350",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Riverview",
+    "addressRegion": "FL",
+    "postalCode": "33578",
+    "addressCountry": "US"
+  },
+  "areaServed": ["US", "CA"],
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61576094093336",
+    "https://www.instagram.com/tradeworksai",
+    "https://linkedin.com/company/tradeworks-ai",
+    "https://www.youtube.com/@tradeworksai",
+    "https://www.pinterest.com/tradeworksai",
+    "https://nextdoor.com/pages/tradeworksai",
+    "https://g.page/r/tradeworksai"
+  ]
+}
+</script>

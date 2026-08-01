@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="Cleaning">
+  <rect width="1200" height="675" fill="#F8FBFA"/>
+  <path d="M700 0h500v675H690c62-148 62-352 10-675z" fill="#7EE3B7" opacity=".18"/>
+  <path d="M760 0h440v675H710c72-144 76-318 50-675z" fill="#7EE3B7" opacity=".95"/><rect x="832" y="300" width="260" height="172" rx="26" fill="#fff" opacity=".86"/><circle cx="922" cy="386" r="48" fill="#E8751A" opacity=".82"/><path d="M922 338v96M874 386h96" stroke="#fff" stroke-width="12" stroke-linecap="round"/><rect x="972" y="348" width="68" height="24" rx="12" fill="#13213A" opacity=".22"/><rect x="972" y="396" width="86" height="24" rx="12" fill="#7EE3B7" opacity=".34"/>
+  <text x="80" y="210" fill="#13213A" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="800">
+    <tspan x="80" dy="0">Cleaning</tspan>
+  </text>
+  <rect x="80" y="434" width="220" height="10" rx="5" fill="#7EE3B7"/>
+  <text x="80" y="500" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="700">Industry Page</text>
+  <text x="80" y="544" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="22">TradeWorks AI homeowner guide</text>
+</svg>

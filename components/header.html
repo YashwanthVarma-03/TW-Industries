@@ -1,0 +1,846 @@
+<!-- SKIP LINK -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Two-row header: dark utility bar on top, white main nav below. -->
+<style id="nav-two-row-style">
+  /* Defeat .nav-container / .site-header rules from styles.css that would
+     otherwise clip us (height:64px, max-width container, dropdown-menu
+     display:none, etc). */
+  #site-header.site-header {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    background: #ffffff;
+  }
+
+  /* ============================================================
+     ROW 1: Top utility bar (dark navy, ~38px)
+     ============================================================ */
+  .nav-topbar {
+    background: #1A1A2E;
+    color: rgba(255,255,255,0.92);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-topbar-inner {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: none;
+    padding: 8px 24px;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 13px;
+  }
+  .nav-topbar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0;
+  }
+  /* Pipe separators between About | Insights | Pricing (design2 style) */
+  .nav-topbar-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 16px;
+    border-right: 1px solid rgba(255,255,255,0.18);
+  }
+  .nav-topbar-links li:first-child a { border-left: 1px solid rgba(255,255,255,0.18); }
+  .nav-topbar-links a:hover { color: #00B4D8; }
+  .nav-topbar-contact {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .nav-topbar-contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+  .nav-topbar-contact-item:hover { color: #00B4D8; }
+  .nav-topbar-icon-circle {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.10);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .nav-topbar-icon-circle svg { width: 12px; height: 12px; }
+  .nav-topbar-icon-phone { background: rgba(249,115,22,0.20); color: #f97316; }
+  .nav-topbar-icon-mail  { background: rgba(0,180,216,0.20); color: #00B4D8; }
+
+  /* ============================================================
+     ROW 2: Main nav (white, ~84px)
+     ============================================================ */
+  .nav-main {
+    background: #ffffff;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .nav-main-inner {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: none;
+    padding: 5px 24px;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  /* ---------- Logo (left) ---------- */
+  .nav-main-inner .nav-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+  .nav-main-inner .nav-logo-bot {
+    display: block;
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .nav-main-inner .nav-logo-wordmark {
+    font-size: 19px;
+    font-weight: 700;
+    color: #1A1A2E;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .nav-main-inner .nav-logo-wordmark strong {
+    color: #f97316;
+    font-weight: 700;
+    margin-left: 2px;
+  }
+
+  /* ---------- Center menu (2 mega menus) ---------- */
+  .nav-main-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 36px;
+    align-items: center;
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+  .nav-main-menu > li.mobile-only { display: none; }
+  .nav-main-menu > .mobile-cta-row { display: none; }
+  .nav-main-menu > li > a,
+  .nav-main-menu > li > .nav-dropdown-btn {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1A1A2E;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 6px 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: inherit;
+    transition: color 0.15s ease;
+  }
+  .nav-main-menu > li > a:hover,
+  .nav-main-menu > li > .nav-dropdown-btn:hover { color: #00B4D8; }
+  .nav-chevron { width: 12px; height: 12px; opacity: 0.7; }
+
+  /* ---------- Right CTAs ---------- */
+  .nav-actions {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .nav-actions-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-actions .nav-cta-join {
+    display: inline-flex !important;
+    align-items: center;
+    background: #ffffff;
+    color: #1A1A2E;
+    border: 1px solid #1A1A2E;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .nav-actions .nav-cta-join:hover { background: #1A1A2E; color: #ffffff; }
+  .nav-actions .nav-cta-signup {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
+    background: #f97316;
+    color: #ffffff;
+    border: 1px solid #f97316;
+    padding: 6px 18px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(249,115,22,0.30);
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+  }
+  .nav-actions .nav-cta-signup:hover {
+    background: #ea580c;
+    box-shadow: 0 4px 12px rgba(249,115,22,0.40);
+  }
+  .nav-actions .nav-cta-arrow {
+    display: inline-block;
+    transform: translateX(0);
+    transition: transform 0.15s ease;
+  }
+  .nav-actions .nav-cta-signup:hover .nav-cta-arrow { transform: translateX(3px); }
+
+  .nav-login-row {
+    margin: 0;
+    font-size: 12px;
+    color: rgba(26,26,46,0.65);
+    font-weight: 500;
+  }
+  .nav-login-row a {
+    color: #1A1A2E;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .nav-login-row a:hover { color: #00B4D8; }
+  /* Auth-state inline hide — auth.js sets style.display='none' on the
+     element(s) that shouldn't show for the current state. The attribute
+     selectors below ensure those inline hides win over the !important
+     show-rules on .nav-cta-signup / .nav-login-link above. */
+  #nav-login-btn[style*="display:none"],
+  #nav-login-btn[style*="display: none"],
+  #nav-signup-btn[style*="display:none"],
+  #nav-signup-btn[style*="display: none"],
+  #nav-dashboard-btn[style*="display:none"],
+  #nav-dashboard-btn[style*="display: none"],
+  #nav-login-row[style*="display:none"],
+  #nav-login-row[style*="display: none"] {
+    display: none !important;
+  }
+
+  /* ---------- Mega menu base ---------- */
+  /* CRITICAL: styles.css:420 sets `.dropdown-menu { display: none }` which
+     wins over opacity tricks. Force display: block and use opacity to fade. */
+  .nav-main-menu .nav-dropdown { position: static; }   /* mega anchors to .nav-main */
+  .nav-main-menu .dropdown-mega {
+    display: block !important;
+    position: absolute;
+    top: 100%;
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-top: 4px solid #f97316;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 10001;
+    transform: translateY(4px);
+  }
+  /* Invisible hover-bridge above each menu panel. Without this, the cursor
+     leaves the button's hover area while crossing the visual gap to the
+     menu, which closes it before you can reach it. The ::before sits inside
+     the menu's positioning context, extending the hover-receiving surface
+     upward by 20px to overlap the button. Inherits pointer-events from the
+     parent, so it's only active while the menu is open. */
+  .nav-main-menu .dropdown-mega::before {
+    content: '';
+    position: absolute;
+    top: -24px;
+    left: 0;
+    right: 0;
+    height: 24px;
+    background: transparent;
+  }
+  .nav-main-menu .nav-dropdown:hover .dropdown-mega,
+  .nav-main-menu .nav-dropdown:focus-within .dropdown-mega,
+  .nav-main-menu .nav-dropdown.is-open .dropdown-mega {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  /* ---------- Mega: Home Owner & Property Manager ---------- */
+  .dropdown-mega-home {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+  .dropdown-mega-home .mega-banner {
+    background: #1A1A2E;
+    color: #ffffff;
+    padding: 12px 32px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .dropdown-mega-home .mega-banner-sep {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.45);
+  }
+  .dropdown-mega-home .mega-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .dropdown-mega-home .mega-half {
+    padding: 24px 32px 28px;
+  }
+  .dropdown-mega-home .mega-half + .mega-half {
+    border-left: 1px solid rgba(0,0,0,0.06);
+  }
+  .dropdown-mega-home .mega-half-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #f97316;
+    margin: 0 0 16px;
+  }
+  .dropdown-mega-home .mega-half-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px 24px;
+  }
+  .dropdown-mega-home .mega-half-cols.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .dropdown-mega-home .mega-col h5 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #f97316;
+    margin: 0 0 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .dropdown-mega-home .mega-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .dropdown-mega-home .mega-col ul a {
+    display: block;
+    padding: 4px 6px;
+    color: #1A1A2E;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    line-height: 1.35;
+  }
+  .dropdown-mega-home .mega-col ul a:hover { background: #F8FAFC; color: #00B4D8; }
+
+  /* ---------- Mega: Home Service PROs (cards list) ---------- */
+  /* Anchor this menu under its own button instead of the far-right of the
+     nav bar: make the parent <li> the positioning context so the absolute
+     panel drops straight below "Home Service PROs". */
+  .nav-main-menu .nav-dropdown-pros { position: relative; }
+  .dropdown-mega-pros {
+    left: 0;
+    right: auto;
+    width: 460px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 78vh;
+    overflow-y: auto;
+  }
+  .pros-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #1A1A2E;
+    transition: background 0.15s ease;
+  }
+  .pros-card:hover { background: #F8FAFC; }
+  .pros-card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 20px;
+  }
+  .pros-card-icon.tw-select   { background: rgba(0,180,216,0.12); color: #00B4D8; }
+  .pros-card-icon.tw-market   { background: rgba(236,72,153,0.12); color: #EC4899; }
+  .pros-card-icon.tw-ai       { background: rgba(249,115,22,0.12); color: #f97316; }
+  .pros-card-icon.tw-crm      { background: rgba(124,58,237,0.12); color: #7C3AED; }
+  .pros-card-icon.tw-industry { background: rgba(34,197,94,0.12); color: #15803D; }
+  .pros-card-icon.tw-integ    { background: rgba(245,158,11,0.12); color: #B45309; }
+  .pros-card-icon img { width: 38px; height: 38px; object-fit: contain; display: block; }
+  .pros-card-icon svg { width: 28px; height: 28px; }
+  .pros-card-text { display: flex; flex-direction: column; gap: 2px; }
+  .pros-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .pros-card-desc {
+    font-size: 12.5px;
+    color: #4B5563;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* ---------- Hamburger ---------- */
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 8px;
+  }
+  .nav-toggle .hamburger-line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #1A1A2E;
+    margin: 4px 0;
+    border-radius: 2px;
+  }
+
+  /* ============================================================
+     Mobile (≤900px) — collapse to hamburger drawer
+     ============================================================ */
+  @media (max-width: 900px) {
+    .nav-topbar-contact { display: none; }
+    .nav-topbar-inner { justify-content: center; padding: 6px 16px; }
+    /* Hide the top utility bar (About / Insights / Pricing) once the page is
+       scrolled. main.js adds .scrolled to #site-header past 10px. On load it
+       stays visible. Mobile only. */
+    #site-header.scrolled .nav-topbar { display: none; }
+    /* Smaller, tighter main header on mobile — was taking too much space. */
+    .nav-main-inner { padding: 7px 16px; }
+    .nav-main-inner .nav-logo-bot { width: 30px; height: 30px; }
+    .nav-main-inner .nav-logo-wordmark { font-size: 16px; }
+    .nav-toggle { display: inline-flex !important; flex-direction: column; align-items: center; justify-content: center; z-index: 10004; position: relative; }
+
+    /* Hide center menu (collapse into drawer) and right-side actions on mobile. */
+    .nav-actions .nav-cta-join,
+    .nav-actions .nav-cta-signup,
+    .nav-login-row { display: none !important; }
+
+    .nav-main-menu {
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      padding: 16px 20px;
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      justify-content: flex-start;
+      /* Cap height so the drawer scrolls inside the viewport instead of
+         extending past the bottom when body has overflow:hidden (set by
+         js/main.js when it adds body.mobile-nav-open). */
+      max-height: calc(100vh - 60px);
+      overflow-y: auto;
+      z-index: 10003;
+    }
+    /* Trigger on EITHER class — my header script adds .nav-main.is-open,
+       and js/main.js adds body.mobile-nav-open. Both are equivalent here. */
+    .nav-main.is-open .nav-main-menu,
+    body.mobile-nav-open .nav-main .nav-main-menu { display: flex !important; }
+    .nav-main-menu > li.mobile-only { display: block; }
+    .nav-main-menu > li > a,
+    .nav-main-menu > li > .nav-dropdown-btn { padding: 12px 4px; font-size: 15px; }
+
+    /* Dropdowns inline inside drawer */
+    .nav-main-menu .dropdown-mega {
+      position: static;
+      transform: none;
+      box-shadow: none;
+      border: 0;
+      border-top: 0;
+      padding: 4px 0 8px 12px;
+      width: auto;
+      max-height: none;
+      opacity: 1; visibility: visible; pointer-events: auto;
+      display: none !important;
+    }
+    .nav-main-menu .nav-dropdown.is-open .dropdown-mega { display: block !important; }
+    .dropdown-mega-home .mega-banner { display: none; }
+    .dropdown-mega-home .mega-body { grid-template-columns: 1fr; }
+    .dropdown-mega-home .mega-half { padding: 8px 0 12px; }
+    .dropdown-mega-home .mega-half + .mega-half { border-left: 0; border-top: 1px solid rgba(0,0,0,0.06); }
+    .dropdown-mega-home .mega-half-cols,
+    .dropdown-mega-home .mega-half-cols.cols-2 { grid-template-columns: 1fr; gap: 12px; }
+    .dropdown-mega-pros { width: auto; padding: 4px 0; }
+
+    /* Mobile CTA stack at drawer bottom */
+    .nav-main-menu > .mobile-cta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      list-style: none;
+      margin: 12px 0 0;
+      padding: 12px 0 0;
+      border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    .mobile-cta-row .mobile-cta-btn { width: 100%; text-align: center; }
+  }
+</style>
+
+<!-- NAVIGATION (2 rows) -->
+<header class="site-header" id="site-header">
+
+  <!-- ROW 1: Top utility bar -->
+  <div class="nav-topbar" aria-label="Utility links">
+    <div class="nav-topbar-inner">
+      <ul class="nav-topbar-links">
+        <li><a href="https://www.tradeworksai.com/about/">About</a></li>
+        <li><a href="https://www.tradeworksai.com/blog/">Insights</a></li>
+        <li><a href="https://www.tradeworksai.com/pricing/">Pricing</a></li>
+      </ul>
+      <div class="nav-topbar-contact">
+        <a href="tel:+18134777350" class="nav-topbar-contact-item" data-event="cta_click" data-section="nav_topbar" data-cta="phone">
+          <span class="nav-topbar-icon-circle nav-topbar-icon-phone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          +1 (813) 477-7350
+        </a>
+        <a href="mailto:trevor@tradeworksai.com" class="nav-topbar-contact-item" data-event="cta_click" data-section="nav_topbar" data-cta="email">
+          <span class="nav-topbar-icon-circle nav-topbar-icon-mail" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </span>
+          trevor@tradeworksai.com
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 2: Main nav -->
+  <nav class="nav-main" id="nav-main" aria-label="Main navigation">
+    <div class="nav-main-inner">
+
+      <!-- LEFT: Logo -->
+      <a href="/" class="nav-logo" aria-label="TradeWorks AI Home">
+        <img src="/images/bot%7Bfavicon%7D.png" alt="" class="nav-logo-bot" width="44" height="44">
+        <span class="nav-logo-wordmark">TradeWorks <strong>AI</strong></span>
+      </a>
+
+      <!-- CENTER: 2 mega menus -->
+      <ul class="nav-main-menu" id="nav-menu" role="menubar">
+
+        <!-- 1. Home Owner & Property Manager (Interior + Exterior services) -->
+        <li class="nav-dropdown nav-mega" role="none">
+          <button type="button" class="nav-dropdown-btn" role="menuitem" aria-expanded="false" aria-haspopup="true">
+            <span>Homeowners &amp; Property Managers</span>
+            <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5l3 3 3-3"/></svg>
+          </button>
+          <div class="dropdown-mega dropdown-mega-home" role="menu">
+            <div class="mega-body">
+
+              <!-- Interior (label intentionally removed per request) -->
+              <div class="mega-half">
+                <div class="mega-half-cols">
+                  <div class="mega-col">
+                    <h5>Home Repairs &amp; Maintenance</h5>
+                    <ul>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/" role="menuitem">All Service Guides</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/plumbing/" role="menuitem">Plumbing</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/locksmith/" role="menuitem">Locksmith</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/appliance-repair/" role="menuitem">Appliance Repairs</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/garage-doors/" role="menuitem">Garage Door Repairs</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/handyman/" role="menuitem">Handyman</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/hvac/" role="menuitem">Furnace Repair</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/hvac/" role="menuitem">HVAC</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/electrical/" role="menuitem">Electrical</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/windows-doors/" role="menuitem">Windows and Doors</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/water-treatment/" role="menuitem">Water Treatment</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/home-security-smart-home/" role="menuitem">Home Security &amp; Smart Home</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/fireplace-chimney/" role="menuitem">Fireplace &amp; Chimney</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-col">
+                    <h5>Cleaning &amp; Organization</h5>
+                    <ul>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/cleaning/" role="menuitem">House Cleaning</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/cleaning/" role="menuitem">Carpet Cleaning</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/cleaning/" role="menuitem">Upholstery Cleaning</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/cleaning/" role="menuitem">Deep Cleaning</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/junk-removal/" role="menuitem">Junk Removal</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/air-duct-vent/" role="menuitem">Duct &amp; Vent Cleaning</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/pool-spa/" role="menuitem">Pool Cleaning</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/cleaning/" role="menuitem">Commercial Cleaners</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/moving-hauling/" role="menuitem">Moving &amp; Hauling</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-col">
+                    <h5>Renovations &amp; Upgrades</h5>
+                    <ul>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/remodeling-construction/" role="menuitem">General Contracting</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/remodeling-construction/" role="menuitem">Carpenters</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/remodeling-construction/" role="menuitem">Bathroom Remodeling</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/remodeling-construction/" role="menuitem">Kitchen Remodeling</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/flooring/" role="menuitem">Flooring Installation</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/remodeling-construction/" role="menuitem">Interior Design</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/flooring/" role="menuitem">Carpet Installation</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/painting/" role="menuitem">Interior Painting</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/remodeling-construction/" role="menuitem">Basement Remodeling</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/drywall-plaster/" role="menuitem">Drywall &amp; Plaster</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/insulation-weatherization/" role="menuitem">Insulation &amp; Weatherization</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Exterior (label intentionally removed per request) -->
+              <div class="mega-half">
+                <div class="mega-half-cols cols-2">
+                  <div class="mega-col">
+                    <h5>Exterior Home Care</h5>
+                    <ul>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/roofing/" role="menuitem">Roofing</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/painting/" role="menuitem">House Painting</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/cleaning/" role="menuitem">Window Washing</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/pool-spa/" role="menuitem">Pools</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/gutters/" role="menuitem">Gutter Cleaning</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/fencing-decks/" role="menuitem">Deck Contractors</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/siding/" role="menuitem">Siding</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/concrete-masonry/" role="menuitem">Concrete and Masonry</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/pressure-washing/" role="menuitem">Pressure Washing</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/screen-repair/" role="menuitem">Screen Repair</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-col">
+                    <h5>Landscaping &amp; Outdoors</h5>
+                    <ul>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/landscaping-lawn-care/" role="menuitem">Lawn Care</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/landscaping-lawn-care/" role="menuitem">Gardening</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/tree-service/" role="menuitem">Tree Trimming</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/landscaping-lawn-care/" role="menuitem">Sprinkler System Repairs</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/landscaping-lawn-care/" role="menuitem">Artificial Turf Installation</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/tree-service/" role="menuitem">Stump Grinding</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/landscaping-lawn-care/" role="menuitem">Sod Installation</a></li>
+                      <li><a href="https://www.tradeworksai.com/services/tradeworks-one/pest-control/" role="menuitem">Pest Control</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </li>
+
+        <!-- 2. Home Service PROs (cards list) -->
+        <li class="nav-dropdown nav-mega nav-dropdown-pros" role="none">
+          <button type="button" class="nav-dropdown-btn" role="menuitem" aria-expanded="false" aria-haspopup="true">
+            <span>Home Service PROs</span>
+            <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5l3 3 3-3"/></svg>
+          </button>
+          <div class="dropdown-mega dropdown-mega-pros" role="menu">
+            <a class="pros-card" href="https://www.tradeworksai.com/services/tradeworks-select/">
+              <span class="pros-card-icon tw-select" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </span>
+              <span class="pros-card-text">
+                <span class="pros-card-title">TradeWorks Select</span>
+                <p class="pros-card-desc">no bidding, no per-lead fees &mdash; $29&ndash;$129+/mo across 5 bands, keep 100% of every invoice.</p>
+              </span>
+            </a>
+            <a class="pros-card" href="/industries/">
+              <span class="pros-card-icon tw-industry" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h2M9 13h2M9 17h2M14 9h1M14 13h1M14 17h1"/></svg>
+              </span>
+              <span class="pros-card-text">
+                <span class="pros-card-title">Industries We Serve</span>
+                <p class="pros-card-desc">Explore contractor pages for HVAC, plumbing, roofing, garage doors, fencing, cleaning, and more.</p>
+              </span>
+            </a>
+            <a class="pros-card" href="https://www.tradeworksai.com/services/tradeworks-one/homeowners/">
+              <span class="pros-card-icon tw-select" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-5a2 2 0 0 1 4 0v5"/></svg>
+              </span>
+              <span class="pros-card-text">
+                <span class="pros-card-title">For Homeowners</span>
+                <p class="pros-card-desc">Browse, choose &amp; book vetted pros &mdash; upfront pricing and 3&ndash;7% back in service credits.</p>
+              </span>
+            </a>
+            <a class="pros-card" href="https://www.tradeworksai.com/services/tradeworks-one/property-managers/">
+              <span class="pros-card-icon tw-industry" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h2M9 13h2M9 17h2M14 9h1M14 13h1M14 17h1"/></svg>
+              </span>
+              <span class="pros-card-text">
+                <span class="pros-card-title">For Property Managers</span>
+                <p class="pros-card-desc">One number for every property service &mdash; $0 platform fee, the contractor invoices you directly.</p>
+              </span>
+            </a>
+            <a class="pros-card" href="https://www.tradeworksai.com/services/digital-marketing/">
+              <span class="pros-card-icon tw-market" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 19h16"/><path d="M6 15l4-4 3 3 5-7"/>
+                  <path d="M19 7h-4"/><path d="M15 7v4"/>
+                </svg>
+              </span>
+              <span class="pros-card-text">
+                <span class="pros-card-title">Digital Marketing</span>
+                <p class="pros-card-desc">Local SEO, Google Ads, LSA, and GEO/AEO &mdash; every tactic measured in booked jobs, not clicks.</p>
+              </span>
+            </a>
+            <a class="pros-card" href="https://www.tradeworksai.com/services/ai-agents/">
+              <span class="pros-card-icon tw-ai" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2a3 3 0 0 0-3 3v2H7a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h1l2 3 2-3h2l2 3 2-3h1a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2V5a3 3 0 0 0-3-3z"/>
+                  <path d="M9 11h.01"/><path d="M15 11h.01"/><path d="M9 15c1.2 1 2.8 1 4 0"/>
+                </svg>
+              </span>
+              <span class="pros-card-text">
+                <span class="pros-card-title">AI Agents</span>
+                <p class="pros-card-desc">24/7 virtual receptionist that answers calls, qualifies leads, and books jobs into your CRM &mdash; from $10/mo.</p>
+              </span>
+            </a>
+            <a class="pros-card" href="https://www.tradeworksai.com/services/consulting/">
+              <span class="pros-card-icon tw-crm" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+              </span>
+              <span class="pros-card-text">
+                <span class="pros-card-title">CRM &amp; Consulting</span>
+                <p class="pros-card-desc">CRM setup, AI workflow automation, and team training so your software actually works for you &mdash; from $149.</p>
+              </span>
+            </a>
+          </div>
+        </li>
+
+        <!-- Mobile-only utility links (drawer) -->
+        <li class="mobile-only" role="none"><a href="https://www.tradeworksai.com/about/" role="menuitem">About</a></li>
+        <li class="mobile-only" role="none"><a href="https://www.tradeworksai.com/blog/" role="menuitem">Insights</a></li>
+        <li class="mobile-only" role="none"><a href="https://www.tradeworksai.com/pricing/" role="menuitem">Pricing</a></li>
+
+        <!-- Mobile CTA stack -->
+        <li class="mobile-cta-row" role="none">
+          <a href="https://www.tradeworksai.com/dashboard/login/login-page.html" id="mobile-nav-login-btn" class="btn btn-outline mobile-cta-btn"
+            data-event="cta_click" data-section="nav_mobile" data-cta="login" style="display:none;">Login</a>
+          <a href="https://www.tradeworksai.com/dashboard/" id="mobile-nav-dashboard-btn" class="btn btn-outline mobile-cta-btn"
+            data-event="cta_click" data-section="nav_mobile" data-cta="dashboard" style="display:none;">Dashboard</a>
+          <a href="https://www.tradeworksai.com/services/tradeworks-select/#application" class="btn btn-outline mobile-cta-btn"
+            data-event="cta_click" data-section="nav_mobile" data-cta="join_as_pro">Join as a Pro</a>
+          <a href="https://www.tradeworksai.com/dashboard/login/sign-up.html" class="btn btn-primary mobile-cta-btn"
+            data-event="cta_click" data-section="nav_mobile" data-cta="signup">Sign Up</a>
+        </li>
+      </ul>
+
+      <!-- RIGHT: CTAs + login subtext.
+           Auth states:
+             logged-out → show Sign Up + "Already a member? Log in" row
+             logged-in  → show Dashboard (in place of Sign Up); hide login row -->
+      <div class="nav-actions" id="nav-actions">
+        <div class="nav-actions-row">
+          <a href="https://www.tradeworksai.com/services/tradeworks-select/#application" class="nav-cta-join"
+            data-event="cta_click" data-section="nav" data-cta="join_as_pro">Join as a Pro</a>
+          <!-- Sign Up (logged-out) and Dashboard (logged-in) share this slot. -->
+          <a href="https://www.tradeworksai.com/dashboard/login/sign-up.html" class="nav-cta-signup" id="nav-signup-btn"
+            data-event="cta_click" data-section="nav" data-cta="signup">Sign Up <span class="nav-cta-arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="https://www.tradeworksai.com/dashboard/" class="nav-cta-signup nav-cta-dashboard" id="nav-dashboard-btn"
+            data-event="cta_click" data-section="nav" data-cta="dashboard" style="display:none;">Dashboard</a>
+        </div>
+        <p class="nav-login-row" id="nav-login-row">
+          Already a member?
+          <a href="https://www.tradeworksai.com/dashboard/login/login-page.html" id="nav-login-btn"
+            data-event="cta_click" data-section="nav" data-cta="login">Log in</a>
+        </p>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Self-contained behavior: mobile drawer toggle + dropdown click-toggle. -->
+<script>
+  (function () {
+    var header = document.getElementById('site-header');
+    if (!header) return;
+    var nav = header.querySelector('#nav-main');
+    var toggle = header.querySelector('.nav-toggle');
+
+    // Mobile drawer
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+
+    // Dropdown click-toggle (touch/keyboard); desktop hover still works via CSS.
+    var dropdownBtns = header.querySelectorAll('.nav-dropdown .nav-dropdown-btn');
+    dropdownBtns.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        var parent = btn.closest('.nav-dropdown');
+        if (!parent) return;
+        var nowOpen = parent.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
+        e.preventDefault();
+      });
+    });
+
+    // Close open dropdowns when clicking outside
+    document.addEventListener('click', function (e) {
+      if (!header.contains(e.target)) {
+        header.querySelectorAll('.nav-dropdown.is-open').forEach(function (d) {
+          d.classList.remove('is-open');
+          var b = d.querySelector('.nav-dropdown-btn');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  })();
+</script>

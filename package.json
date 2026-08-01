@@ -1,0 +1,9 @@
+{
+  "name": "tradeworks-ai-site",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node .local-server.cjs",
+    "serve": "node .local-server.cjs"
+  }
+}
