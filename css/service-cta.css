@@ -1,0 +1,122 @@
+.tw-intake-service-cta-wrap {
+  width: min(930px, calc(100% - 48px));
+  max-width: 930px;
+  margin: 22px auto 34px;
+  padding: 0;
+  display: block;
+  justify-content: initial;
+  position: relative;
+  z-index: 3;
+}
+
+.tw-intake-service-cta-card {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 20px;
+  border: 1px solid rgba(0, 180, 216, 0.28);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #F4FBFD 0%, #FFFFFF 58%, #FFF7F2 100%);
+  box-shadow: 0 14px 34px rgba(15, 43, 70, 0.1);
+  color: #1A1A2E;
+}
+
+.tw-intake-service-cta-media {
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #EAFBFF;
+  color: #00A6C8;
+  overflow: hidden;
+}
+
+.tw-intake-service-cta-media img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
+}
+
+.tw-intake-service-cta-copy {
+  min-width: 0;
+}
+
+.tw-intake-service-cta-copy h2 {
+  margin: 0 0 5px;
+  color: #1E3A5F;
+  font-size: 19px;
+  line-height: 1.25;
+}
+
+.tw-intake-service-cta-copy p {
+  margin: 0;
+  color: #4B5563;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.tw-intake-service-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 7px;
+  background: #00B4D8;
+  color: #FFFFFF;
+  font: 700 14px/1.2 var(--font-body, "Inter", system-ui, sans-serif);
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0, 180, 216, 0.22);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+
+.tw-intake-service-cta:hover,
+.tw-intake-service-cta:focus-visible {
+  background: #0891B2;
+  box-shadow: 0 12px 26px rgba(8, 145, 178, 0.26);
+  transform: translateY(-1px);
+}
+
+.tw-intake-service-cta:focus-visible {
+  outline: 3px solid rgba(0, 180, 216, 0.26);
+  outline-offset: 3px;
+}
+
+.tw-intake-service-cta-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+@media (max-width: 720px) {
+  .tw-intake-service-cta-wrap {
+    width: calc(100% - 32px);
+    margin: 16px auto 24px;
+  }
+
+  .tw-intake-service-cta-card {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .tw-intake-service-cta {
+    width: 100%;
+  }
+
+  .tw-intake-service-cta-media {
+    margin-bottom: 2px;
+  }
+}

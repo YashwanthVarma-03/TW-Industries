@@ -1,0 +1,30 @@
+# ─────────────────────────────────────────────────────────────
+# Images — kept OUT of git so pushes/clones stay small & fast.
+# These files still live on disk (untracked via `git rm --cached`,
+# not deleted) and still deploy via Firebase Hosting from the
+# working directory. Past history is untouched.
+# ─────────────────────────────────────────────────────────────
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.bmp
+*.tiff
+*.tif
+*.ico
+
+# ── Exceptions: small brand/UI chrome that MUST stay tracked
+#    (needed by every page + on a fresh clone). ──
+!favicon.ico
+!images/favicon-16x16.png
+!images/favicon-32x32.png
+!images/apple-touch-icon.png
+!images/industries/v3/icon-pack/*.png
+
+# NOTE: *.svg is intentionally NOT ignored — SVGs (e.g. images/logo-primary.svg)
+# are small, code-like brand assets and stay tracked.
+
+# Local scratch / temp
+.tmp/
+session 4/ 

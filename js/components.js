@@ -1,25 +1,72 @@
 /* ============================================
    TradeWorks AI — Component Loader
    Loads shared header & footer into any page.
-   The shared HTML uses root-absolute paths so the clone works the same on
-   every laptop when served from the repo root.
+   Pages can set <meta name="tw-root-path" content="../../"> when served from
+   a nested static bucket URL instead of a domain root.
    ============================================ */
 
 (function () {
   'use strict';
 
+  function getRootPath() {
+    var meta = document.querySelector('meta[name="tw-root-path"]');
+    return meta ? meta.getAttribute('content') || '' : '';
+  }
+
+  function sitePath(path) {
+    var root = getRootPath();
+    if (!root || !path || path.charAt(0) !== '/' || path.charAt(1) === '/') return path;
+
+    var hash = '';
+    var query = '';
+    var cleanPath = path;
+    var hashIndex = cleanPath.indexOf('#');
+    if (hashIndex >= 0) {
+      hash = cleanPath.slice(hashIndex);
+      cleanPath = cleanPath.slice(0, hashIndex);
+    }
+    var queryIndex = cleanPath.indexOf('?');
+    if (queryIndex >= 0) {
+      query = cleanPath.slice(queryIndex);
+      cleanPath = cleanPath.slice(0, queryIndex);
+    }
+    if (cleanPath === '/') return root + 'index.html' + query + hash;
+
+    var relative = cleanPath.replace(/^\/+/, '');
+    var lastSegment = relative.split('/').pop();
+    if (cleanPath.charAt(cleanPath.length - 1) === '/') {
+      relative = relative.replace(/\/+$/, '') + '/index.html';
+    } else if (lastSegment.indexOf('.') === -1) {
+      relative += '/index.html';
+    }
+    return root + relative + query + hash;
+  }
+
+  function rewriteRootUrls(rootNode) {
+    if (!getRootPath() || !rootNode) return;
+    rootNode.querySelectorAll('[href^="/"], [src^="/"], [action^="/"]').forEach(function (node) {
+      ['href', 'src', 'action'].forEach(function (attr) {
+        var value = node.getAttribute(attr);
+        if (value) node.setAttribute(attr, sitePath(value));
+      });
+    });
+  }
+
   function loadComponent(id, path, callback) {
     var placeholder = document.getElementById(id);
     if (!placeholder) return;
 
-    var url = path;
+    var url = sitePath(path);
     fetch(url, { cache: 'no-cache' })
       .then(function (res) {
         if (!res.ok) throw new Error('Failed to load ' + url);
         return res.text();
       })
       .then(function (html) {
-        placeholder.outerHTML = html;
+        var wrapper = document.createElement('div');
+        wrapper.innerHTML = html;
+        rewriteRootUrls(wrapper);
+        placeholder.outerHTML = wrapper.innerHTML;
         if (callback) callback();
       })
       .catch(function (err) {
@@ -51,8 +98,6 @@
 
   // Load Google Identity Services + auth.js
   function loadAuthSystem() {
-    return;
-
     // 1. Load Google Identity Services library
     var gsi = document.createElement('script');
     gsi.src = 'https://accounts.google.com/gsi/client';
@@ -61,7 +106,7 @@
 
     // 2. Load auth.js (handles One Tap + header button state)
     var auth = document.createElement('script');
-    auth.src = '/js/auth.js';
+    auth.src = sitePath('/js/auth.js');
     auth.async = true;
     document.head.appendChild(auth);
   }
@@ -69,7 +114,7 @@
   // Article-page enhancements (reading progress, share rail, TOC)
   if (document.body && document.body.classList.contains('article-page')) {
     var blogScript = document.createElement('script');
-    blogScript.src = '/js/blog-article.js';
+    blogScript.src = sitePath('/js/blog-article.js');
     blogScript.defer = true;
     document.head.appendChild(blogScript);
   }

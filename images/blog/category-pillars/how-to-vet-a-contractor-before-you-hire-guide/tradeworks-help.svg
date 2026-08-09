@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="How to Vet a Contractor Before You Hire">
+  <rect width="1200" height="675" fill="#F8FBFA"/>
+  <path d="M700 0h500v675H690c62-148 62-352 10-675z" fill="#7EE3B7" opacity=".18"/>
+  <rect x="768" y="258" width="330" height="250" rx="32" fill="#fff" opacity=".9"/><circle cx="860" cy="348" r="54" fill="#7EE3B7" opacity=".9"/><path d="M838 348l18 18 36-46" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/><rect x="928" y="315" width="112" height="24" rx="12" fill="#13213A" opacity=".22"/><rect x="928" y="365" width="142" height="24" rx="12" fill="#E8751A" opacity=".34"/>
+  <text x="80" y="210" fill="#13213A" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="800">
+    <tspan x="80" dy="0">How to Vet a Contractor</tspan>
+    <tspan x="80" dy="64">Before You Hire</tspan>
+  </text>
+  <rect x="80" y="434" width="220" height="10" rx="5" fill="#7EE3B7"/>
+  <text x="80" y="500" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="700">TradeWorks Help</text>
+  <text x="80" y="544" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="22">TradeWorks AI homeowner guide</text>
+</svg>
