@@ -34,7 +34,7 @@
   }
 
   function iconPackPath(number) {
-    return sitePath("/images/industries/v3/icon-pack/" + number + ".png");
+    return "";
   }
 
   function getRootPath() {
@@ -366,6 +366,7 @@
   }
 
   function chooseIconPath(title, usedIcons) {
+    return "";
     var used = usedIcons || pageIconUsage;
     var candidates = getTitleIconCandidates(title);
     for (var i = 0; i < candidates.length; i += 1) {
